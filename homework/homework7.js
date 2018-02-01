@@ -15,6 +15,9 @@ var ensureEqual = function(a, b, message) {
 }
 
 log('lesson7 homework begin')
+
+
+
 // 作业 1
 /*
 delimiter 是 string
@@ -364,8 +367,96 @@ array 是一个只包含了 0 9 的 array
 
 规则是, 0 会被设置为左右两边 9 的数量
 */
+var markedLine = function(array) {
+    var line = array.slice(0)
+    for (var i = 0; i < line.length; i++) {
+        var n = line[i]
+        if (n === 9 && i > 0) {
+            if (line[i-1] !== 9) {
+                line[i-1] += 1
+            }
+        }
+        if (n === 9 && i < line.length - 1) {
+            if (line[i+1] !== 9) {
+                line[i+1] += 1
+            }
+        }
+    }
+    log(line)
+    return line
+}
 
+var line = [0, 0, 9, 0, 9]
+// markedLine(line)
 
+// 作业 15
+/*
+array 是一个「包含了『只包含了 0 9 的 array』的 array」
+返回一个标记过的 array
+** 注意, 使用一个新数组来存储结果, 不要直接修改老数组
+
+范例如下, 这是 array
+[
+    [0, 9, 0, 0],
+    [0, 0, 9, 0],
+    [9, 0, 9, 0],
+    [0, 9, 0, 0],
+]
+
+这是标记后的结果
+[
+    [1, 9, 2, 1],
+    [2, 4, 9, 2],
+    [9, 4, 9, 2],
+    [2, 9, 2, 1],
+]
+
+规则是, 0 会被设置为四周 8 个元素中 9 的数量
+*/
+var b = [
+            [0, 9, 0, 0],
+            [0, 0, 9, 0],
+            [9, 0, 9, 0],
+            [0, 9, 0, 0],
+        ]
+
+var plus1 = function(array, x, y) {
+    var n = array.length
+    if(x >= 0 && x <n && y >= 0 && y < n){
+        if (array[x][y] !== 9) {
+            array[x][y] += 1
+        }
+    }
+}
+
+var markAround = function(array, x, y) {
+    if (array[x][y] === 9) {
+        // 左3
+        plus1(array, x-1, y-1)
+        plus1(array, x-1 , y)
+        plus1(array, x-1, y+1)
+        // 中2
+        plus1(array, x, y-1)
+        plus1(array, x, y+1)
+        // 右3
+        plus1(array, x+1, y-1)
+        plus1(array, x+1, y)
+        plus1(array, x+1, y+1)
+    }
+}
+
+var markedSquare = function(array) {
+    var square = array.slice(0)
+    for (var i = 0; i < square.length; i++) {
+        var line = square[i]
+        for (var j = 0; j < line.length; j++) {
+            markAround(square, i, j)
+        }
+    }
+    return square
+}
+
+log(markedSquare(b))
 
 
 
