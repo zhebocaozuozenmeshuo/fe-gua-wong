@@ -27,6 +27,7 @@ var server = http.createServer(function(request, response){
   // log('path:', path, 'query:', query, 'method', method)
   // log('********end request********')
   /*************emms, 上面的不懂也没关系啊...**************************************/
+  log(`wong tells: the path contain query \n ${pathWithQuery}`)
   if (path === '/') {
     let string = fs.readFileSync('./server/index.html', 'utf8')
     response.statusCode = 200
