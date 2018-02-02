@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    *{box-sizing: border-box;}
+    body{
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      -ms-align-items: center;
+      align-items: center;
+      justify-content: center;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+    html, body{
+      height: 100%;
+    }
+    .form-wrapper{
+      border: 1px solid #ddd;
+      padding: 20px;
+      min-width: 470px;
+    }
+    .form-wrapper .row {
+      margin: 10px 0;
+    }
+    .form-wrapper .row>label {
+      display: inline-block;
+      min-width: 5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrapper">
+    <h1>注册</h1>
+    <form id="signUpForm">
+      <div class="row">
+        <label for="">邮箱</label>
+        <input type="text" name="email">
+        <span class="error"></span>
+      </div>
+      <div class="row">
+        <label for="">密码</label>
+        <input type="password" name="password">
+        <span class="error"></span>
+      </div>
+      <div class="row">
+        <label for="">确认密码</label>
+        <input type="password" name="password_confirmation">
+        <span class="error"></span>
+      </div>
+      <div class="row">
+        <input type="submit" value="注册">
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
+  <script>
+  let $form = $('#signUpForm')
+  let hash = {}
+    $form.on('submit', (e) => {
+      e.preventDefault()
+      let need = ['email', 'password', 'password_confirmation']
+      need.forEach((name) => {
+        let value = $form.find(`[name=${name}]`).val()
+        hash[name] = value
+      })
+      // 011843
+      if (hash['email'] === '') {
+        $form.find('[name="email"]').siblings('.error')
+          .text('填邮箱呀同学')
+          return
+      }
+      // console.log(hash)
+      $.post('sign_up', hash)
+        .then((r) => {
+          console.log(r)
+        }, (request) => {
+          // let {errors} = JSON.parse(request.responseText)
+          // console.log(errors)
+          let {errors} = request.responseJSON
+          if (errors.email && errors.email === 'invalid') {
+            // alert('你的邮箱输错了')
+            $form.find('[name="email"]').siblings('.error')
+              .text('邮箱格式错误')
+          }
+          console.log(errors)
+        })
+    })
+
+  </script>
+</body>
+</html>

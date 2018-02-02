@@ -568,7 +568,6 @@ var decode4 = function(s) {
 decode4()
 
 
-
 // =======
 // 提示
 // =======
