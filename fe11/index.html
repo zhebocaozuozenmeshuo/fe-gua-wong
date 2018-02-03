@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向对象</title>
+</head>
+<body>
+    <h1>自定义属性</h1>
+    <div class="todo-cell" data-id=1>
+        抱团
+        <button class="gua-button" data-id=1 data-name='按钮'>更新</button>
+        <button class="gua-button-delete" data-id=1 data-name='按钮1'>删除</button>
+    </div>
+    <div class="todo-cell" data-id=2>
+        <div>
+            吃瓜
+            <button class="gua-button" data-id=1 data-name='按钮1'>更新</button>
+            <button class="gua-button-delete" data-id=1 data-name='按钮1'>删除</button>
+        </div>
+    </div>
+    <script>
+        var e = sel => {
+            return document.querySelector(sel)
+        }
+        var log = function() {
+            console.log.apply(console, arguments)
+        }
+        var body = e('body')
+        body.addEventListener('click', function(event){
+            var target = event.target
+            var dom = target.closest('.todo-cell')
+            if(target.classList.contains('gua-button')) {
+                var id = dom.dataset.id
+                log('click 更新 id', id)
+            }if(target.classList.contains('gua-button-delete')) {
+                var id = dom.dataset.id
+                log('click 删除 id', id)
+            }
+        })
+    </script>
+    <script src="ooTodo.js"></script>
+</body>
+</html>

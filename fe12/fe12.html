@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fe12 轮播</title>
+    <script src="../gua.js"></script>
+    <style>
+        .gua-hide{
+            display: none;
+        }
+        .gua-menu-content {
+            height: 100px;
+            border: 1px solid red;
+        }
+        .gua-item {
+            display: inline-block;
+            /* opacity: 0.6; */
+            filter: grayscale(100%)
+        }
+        .gua-item.gua-highlight {
+            /* opacity: 1; */
+            filter: inherit;
+            box-shadow: 0 0 0 1px #72c8e5;
+        }
+        .gua-item.gua-highlight img {
+            height: 120px;
+            width: 120px;
+        }
+        img {
+            transition: all .3s;
+        }
+        .gua-item img {
+            height: 100px;
+            width: 100px;
+        }
+        .gua-slide {
+            display: inline-block;
+            border: 1px solid red;
+            position: relative;
+        }
+        .gua-slide-image {
+            display: none;
+        }
+        .gua-slide-image.active {
+            display: inline-block;
+        }
+        .gua-slide-button {
+            right: 0;
+            height: 70px;
+        }
+        .gua-vertical-center {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .gua-slide .gua-slide-indicators{
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .gua-slide .gua-slide-indicators div{
+            display: inline-block;
+            background: #ddd;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+        }
+        .gua-slide .gua-slide-indicators .gua-red {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 轮播图 -->
+    <div class="gua-3">
+        <div class="gua-slide">
+            <div class="gua-slide" data-imgs=6 data-active=0>
+                <img id=id-guaimage-0 src="https://i.loli.net/2018/02/03/5a7580390f3dc.png" alt="" class="gua-slide-image active">
+                <img id=id-guaimage-1 src="https://i.loli.net/2018/02/03/5a7578fbd626a.png" alt="" class="gua-slide-image">
+                <img id=id-guaimage-2 src="https://i.loli.net/2018/02/03/5a7578fbd623f.png" alt="" class="gua-slide-image">
+                <img id=id-guaimage-3 src="https://i.loli.net/2018/02/03/5a75803910c98.png" alt="" class="gua-slide-image">
+                <img id=id-guaimage-4 src="https://i.loli.net/2018/02/03/5a7580391a492.png" alt="" class="gua-slide-image">
+                <img id=id-guaimage-5 src="https://i.loli.net/2018/02/03/5a7580391bbfe.png" alt="" class="gua-slide-image">
+                <button class="gua-slide-button gua-vertical-center">下一张</button>
+                <div class="gua-slide-indicators">
+                    <div class="gua-red"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 鼠标滑过的菜单选择效果 -->
+    <div class="gua-2 gua-hide">
+        <div class="gua-list">
+            <div class="gua-item">
+                <img src="https://i.loli.net/2018/02/03/5a7578fbd626a.png" alt="">
+            </div>
+            <div class="gua-item">
+                <img src="https://i.loli.net/2018/02/03/5a7578fbd623f.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 点击展开的菜单 -->
+    <div class="gua1 gua-hide">
+        <div class="gua-menu">
+            <button class="gua-menu-toggle">点击展开详情</button>
+            <div class="gua-menu-content">
+                详情
+            </div>
+        </div>
+        <div class="gua-menu">
+            <button class="gua-menu-toggle">点击展开详情</button>
+            <div class="gua-menu-content">
+                详情
+            </div>
+        </div>
+    </div>
+    
+    <script src="fe12.js"></script>
+</body>
+</html>
