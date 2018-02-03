@@ -62,6 +62,9 @@
   </div>
   <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
   <script>
+  var log  = function() {
+    console.log.apply(console, arguments)
+  }
   let $form = $('#signUpForm')
   let hash = {}
     $form.on('submit', (e) => {
@@ -71,19 +74,34 @@
         let value = $form.find(`[name=${name}]`).val()
         hash[name] = value
       })
-      // 011843
+      $form.find('.error').each((index, span) => {
+        $(span).text('')
+      })
       if (hash['email'] === '') {
         $form.find('[name="email"]').siblings('.error')
           .text('填邮箱呀同学')
           return
       }
+      if (hash['password'] === '') {
+        $form.find('[name="password"]').siblings('.error')
+          .text('填密码呀同学')
+          return
+      }
+      if (hash['password_confirmation'] === '') {
+        $form.find('[name="password_confirmation"]').siblings('.error')
+          .text('确认密码呀同学')
+          return
+      }
+      if (hash['password_confirmation'] !== hash['password']) {
+        $form.find('[name="password_confirmation"]').siblings('.error')
+          .text('密码不匹配呀')
+          return
+      }
       // console.log(hash)
-      $.post('sign_up', hash)
+      $.post('/sign_up', hash)
         .then((r) => {
           console.log(r)
         }, (request) => {
-          // let {errors} = JSON.parse(request.responseText)
-          // console.log(errors)
           let {errors} = request.responseJSON
           if (errors.email && errors.email === 'invalid') {
             // alert('你的邮箱输错了')

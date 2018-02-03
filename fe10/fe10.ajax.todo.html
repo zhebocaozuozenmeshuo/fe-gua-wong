@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gua Xiao 不要慌</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        * {box-sizing: border-box;}
+        ul, li{list-style: none;}
+        html, body{
+            height: 100%;
+        }
+        body{
+            position: relative;
+        }
+        .done {
+            color: gray;
+            text-decoration: line-through;
+            background: lightblue;
+        }
+        section.apartRequirement{
+            position: absolute;
+            bottom: 0;
+            padding: 10px;
+            margin: 30px;
+            height: 170px;
+            overflow: scroll;
+            overflow-x: hidden;
+            border: 1px solid red;
+        }
+        #id-div-container {
+            height: 270px;
+            overflow: scroll;
+            overflow-x: hidden;
+            padding: 20px;
+            border: 1px solid lightblue;
+        }
+        #id-div-container div {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="id-div-container">
+        
+    </div>
+    <section class="apartRequirement">
+        <ul>
+            <li>拆分需求</li>
+            <li>第一步 向页面中添加输入框和提交按钮</li>
+            <pre>   绑定提交按钮事件</pre>
+            <pre>   点击提交按钮会发送创建 todo 的 ajax</pre>
+            <pre>   ajax 成功后会在页面添加被创建的 todo</pre>
+            <li>第二步 载入所有 todo</li>
+            <li>第三步 显示所有 todo</li>
+            <li>第四步 每个 todo 显示删除按钮</li>
+            <li>第五步 删除按钮可以删掉这个 todo</li>
+            <pre>   绑带删除按钮的事件</pre>
+            <pre>   写出删除按钮， 需要 todo_id</pre>
+            <pre>   在事件中调用删除函数， 需要得到 todo_id 并传给删除函数</pre>
+            <pre>   删除 todo 这个 div，暂时不关心服务器那边是否删除成功</pre>
+            <li>第六步 每个 todo 要显示更新按钮</li>
+            <li>第七步 点击更新按钮要....</li>
+            <li>第八步 添加 css....</li>
+        </ul>
+    </section>
+    <div>半年10w行代码</div>
+    <script src="todo.ajax.js" charset="utf-8"></script>
+</body>
+</html>

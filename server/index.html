@@ -7,6 +7,64 @@
   <title>Todo Ajax</title>
 </head>
 <body>
-
+  <p>你的密码是： __password__ </p>
+  <a href="/sign_up">注册</a>
+  <a href="/sign_in">登陆</a>
+  <a href="/fe10_ajax_todo">todo</a>
 </body>
+<script>
+  var log = function() {
+    console.log.apply(console, arguments)
+  }
+  var ajax = function(method, path, headers, data, responseCallbackMethd) {
+    var r = new XMLHttpRequest()
+    r.open(method, path, true)
+    r.setRequestHeader('Content-Type', 'appliction/json') 
+    r.onreadystatechange = function() {
+      if(r.readyState == 4) {
+        responseCallbackMethd(r)
+      }
+    }
+    r.send(data) 
+  }
+
+  
+  // var method = 'GET'
+  // var url = '/all'
+  // var data = {
+  //   'qq': '354929394',
+  //   'task': 'gua'
+  // }
+  //
+  // data = JSON.stringify(data)
+  // ajax('POST', '/add', null, data, function(r) {
+    //  var todos = JSON.parse(r.response)  
+    // console.log(todos)
+  // })
+
+    // var id = 'gqk4'
+    // var data = {id}
+    // data = JSON.stringify(data)
+    // ajax('POST', '/delete', null, data, function(r) {
+    //   var todo = JSON.parse(r.response)
+    //   log(todo)
+    // })
+
+  // var id = 'gqk4'
+  // var task = 'wong'
+  // var data = {
+  //   id,
+  //   task
+  // }
+  // data = JSON.stringify(data)
+  // ajax('POST', '/update', null, data, function(r) {
+  //   var todo = JSON.parse(r.response)  
+  //   console.log(todo)
+  // })
+
+  // ajax(method, url, null, '', function(r) {
+  //   var todos = JSON.parse(r.response)  
+  //   console.log(todos)
+  // })
+</script>
 </html>
