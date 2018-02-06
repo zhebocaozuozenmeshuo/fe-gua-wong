@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>todo spa</title>
+  <link rel="stylesheet" href="todo.css">
+  <script src="../gua.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="">
+    <button class="gua-tab" data-page="todo-new">显示创建 todo 页面</button>
+    <button class="gua-tab" data-page="todo-list">显示 todo list 页面</button>
+  </div>
+  <div class="gua-page todo-new">
+    <input id="id-input-task" type="text">
+    <button id="id-button-add"> 创建 todo</button>
+  </div>
+  <div class="gua-page todo-list">
+
+  </div>
+
+  <script src="todoApi.js">
+  </script>
+  <script>
+    // 创建 todo
+    // 1. 写出界面
+    // 2. 给 add button 绑定一个事件
+    // 3. 获取 input 的值
+    // 4. 创建一个 todo
+    // 5. 保存 todo
+  </script>
+  <script src="pageTodoList.js">
+  </script>
+  <script src="todoApp.js">
+  </script>
+  <script>
+    // 我们把 todo 存在 localstorage 里面
+    // {
+    //   "id": 1,
+    //   "task": "吃瓜",
+    //   "done": true,
+    // }
+    // 界面有四个
+    // -. 创建一个 todo
+    // -. 显示某个 todo
+    // -. 修改 todo
+    // -. 显示 todo 列表
+  </script>
+
+</body>
+</html>
