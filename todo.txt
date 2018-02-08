@@ -4,3 +4,16 @@
  tab 轮播 作业
 
 3、 简历
+
+4、 看完、 koa 重写登录
+完善 gua.js
+完善 gua.css
+完善 组件库
+完善简历
+数据结构 javascript 版
+awsome electron
+手机画板
+小游戏
+金企信
+再优化吧...
+
