@@ -1,0 +1,12 @@
+* {margin: 0; padding: 0}
+* {box-sizing: border-box;}
+.gua-blogs {
+  width: 570px;
+  margin: auto auto;
+}
+.gua-blog-cell {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 1px;
+  outline: 1px solid lightblue;
+}

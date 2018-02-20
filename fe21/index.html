@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS3 的动画</title>
+  <style>
+    .gua-block {
+      background: lightblue;
+      width: 100px;
+      height: 100px;
+    }
+    .gua-spin {
+      animation: spin linear 2s;
+      animation-iteration-count: 1;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gua-block">
+    方块
+  </div>
+  <button class="play">播放动画</button>
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <script>
+    let e = sel => document.querySelector(sel)
+    let playAnimation = function() {
+      let animation = 'gua-spin'
+      let block = e('.gua-block')
+      block.classList.add(animation)
+      block.addEventListener('animationend', function(){
+        block.classList.remove(animation)
+      })
+    }
+    let __main = function() {
+      e('.play').addEventListener('click', function(){
+        console.log('play')
+        playAnimation()
+      })
+    }
+    __main()
+  </script>
+</body>
+</html>
