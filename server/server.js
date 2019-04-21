@@ -44,30 +44,30 @@ var server = http.createServer(function(request, response){
   log(`宏坤说: 你的带参数请求路径为 \n ${pathWithQuery}`)
   if (path === '/') {
     let string = fs.readFileSync('./server/index.html', 'utf8')
-    let cookies = request.headers.cookie.split('; ')
-    let hash = {}
-    for (let i = 0; i < cookies.length; i++) {
-      const parts = cookies[i].split('=')
-      let key = parts[0]
-      let value = parts[1]
-      hash[key] = value
-    }
-    let email = hash.sign_in_email
-    let users = fs.readFileSync('./server/db/users', 'utf8')
-    users = JSON.parse(users)
-    let foundUser
-    for (let i = 0; i < users.length; i++) {
-      const user = users[i];
-      if(user.email === email) {
-        foundUser = user
-        break
-      }
-    }
-    if (foundUser) {
-      string = string.replace('__password__', foundUser.password)
-    } else {
-      string = string.replace('__password__', '不知道')
-    }
+    // let cookies = request.headers.cookie.split('; ')
+    // let hash = {}
+    // for (let i = 0; i < cookies.length; i++) {
+    //   const parts = cookies[i].split('=')
+    //   let key = parts[0]
+    //   let value = parts[1]
+    //   hash[key] = value
+    // }
+    // let email = hash.sign_in_email
+    // let users = fs.readFileSync('./server/db/users', 'utf8')
+    // users = JSON.parse(users)
+    // let foundUser
+    // for (let i = 0; i < users.length; i++) {
+    //   const user = users[i];
+    //   if(user.email === email) {
+    //     foundUser = user
+    //     break
+    //   }
+    // }
+    // if (foundUser) {
+    //   string = string.replace('__password__', foundUser.password)
+    // } else {
+    //   string = string.replace('__password__', '不知道')
+    // }
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.write(string)
